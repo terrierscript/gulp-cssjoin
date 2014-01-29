@@ -21,8 +21,14 @@ module.exports = function(options){
       paths : [ path.dirname(file.path)]
     })
     console.log(file)
-    cssjoin(file, options, function(err, css){
-
+    cssjoin(file.path, options, function(err, css){
+      if (err) {
+        self.emit('error', new PluginError('glup-cssjoin', err))
+      } else {
+        file.contents = new Buffer(css);
+        self.push(file)
+      }
+      callback();
     })
   })
 
