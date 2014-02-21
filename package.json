@@ -26,6 +26,7 @@
     "cssjoin": "~0.3.0",
     "through2": "~0.4.1",
     "gulp-util": "~2.2.13",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "lodash.defaults": "~2.4.1"
   }
 }
