@@ -11,7 +11,11 @@
     "url": "https://github.com/suisho/gulp-cssjoin"
   },
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "css",
+    "import",
+    "include",
+    "extend"
   ],
   "author": "suisho",
   "license": "MIT",
