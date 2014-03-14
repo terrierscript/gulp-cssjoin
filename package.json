@@ -4,7 +4,7 @@
   "description": "Extend and join css @import loaded file",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
