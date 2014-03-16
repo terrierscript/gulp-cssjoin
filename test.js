@@ -4,7 +4,6 @@ var cssjoin = require("./index.js")
 var fs = require('fs')
 var fixtureBase = "./node_modules/cssjoin/test/fixture/"
 
-
 describe('gulp-cssjoin', function(){
   it("basic", function(done){
     var stream = cssjoin()
@@ -18,6 +17,7 @@ describe('gulp-cssjoin', function(){
       expect = fs.readFileSync(outputPath, { encoding : 'utf-8' })
       assert.equal(data.contents.toString('utf8'), expect);
       done()
+    }).on('end', function(){
     })
     stream.write(file)
   })
@@ -41,5 +41,30 @@ describe('gulp-cssjoin', function(){
       done()
     })
     stream.write(file)
+  })
+
+  it("throw when null", function(done){
+    var stream = cssjoin()
+    var nullFile = new gutil.File()
+    stream.on('data',function(file){
+      assert.deepEqual(file, nullFile)
+    }).on('end', function(){
+      done()
+    })
+    stream.write(nullFile)
+    stream.end()
+  })
+
+  it("stream is not supported ", function(done){
+    var stream = cssjoin()
+    var streamFile = {
+      isNull: function () { return false; },
+      isStream: function () { return true; }
+    };
+    stream.on('error', function (err) {
+      assert.equal('Streaming not supported', err.message);
+      done();
+    });
+    stream.write(streamFile);
   })
 })
