@@ -9,6 +9,8 @@
 npm install gulp-cssjoin --save
 ```
 
+### Simple Usage
+
 ```js
 var gulp = require('gulp');
 var cssjoin = require('gulp-cssjoin');
@@ -30,4 +32,16 @@ gulp.task('cssjoin', function(){
       .pipe(gulp.dest("./output/css"))
 
 })
+```
+
+### With less output
+- sample for resolve @import after compile less
+
+```js
+gulp.task('css', function(){
+  gulp.src('./less/*.less')
+    .pipe(cssjoin())
+    .pipe(gulp.dest('./css/'))
+})
+
 ```
