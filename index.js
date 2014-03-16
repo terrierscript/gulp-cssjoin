@@ -16,6 +16,7 @@ module.exports = function(options){
 
     if (file.isStream()) {
       this.emit('error', new PluginError('gulp-cssjoin', 'Streaming not supported'));
+      return callback()
     }
     
 
