@@ -1,6 +1,6 @@
 {
   "name": "gulp-cssjoin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Extend and join css @import loaded file",
   "main": "index.js",
   "scripts": {
