@@ -25,7 +25,7 @@ module.exports = function(options){
     })
     cssjoin(file.path, options, function(err, css){
       if (err) {
-        self.emit('error', new PluginError('glup-cssjoin', err))
+        self.emit('error', new PluginError('gulp-cssjoin', err))
       } else {
         file.contents = new Buffer(css);
         self.push(file)
